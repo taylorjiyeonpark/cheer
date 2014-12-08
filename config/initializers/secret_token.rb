@@ -12,4 +12,4 @@ def secure_token
   end
 end
 
-Twitter::Application.config.secret_key_base = secure_token
+Cheer::Application.config.secret_key_base = secure_token
