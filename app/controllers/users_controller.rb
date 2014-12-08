@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to Twitter!"
+      flash[:success] = "Welcome to Cheer!"
       redirect_to @user
     else
       render 'new'
@@ -51,10 +51,8 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+    flash[:success] = "User destroyed."
+    redirect_to users_url
   end
 
   private
