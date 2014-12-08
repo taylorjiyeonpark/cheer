@@ -114,7 +114,7 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: $blue;
   a {
     color: $gray;
     &:hover {
@@ -230,7 +230,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:last-child {
       border-bottom: 1px solid $grayLighter;
     }
@@ -289,4 +289,8 @@ aside {
 
 .reply{
   display: none;
+}
+
+.center{
+  background-color: pink;
 }
