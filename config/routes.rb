@@ -1,7 +1,7 @@
  Rails.application.routes.draw do 
   root  'about#index'
   match '/signin', to:'sessions#new', via:'get'
-  match '/signout', to:'sessions#destroy', via:'delete'
+  match '/signout', to:'sessions#destroy', via:'get'
   match '/about', to:'about#index', via:'get'
 
   resources :users
