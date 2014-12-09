@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   def set_image(file)
     if !file.nil?
