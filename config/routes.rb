@@ -1,4 +1,6 @@
  Rails.application.routes.draw do 
+  resources :groups
+
   root  'about#index'
   match '/signin', to:'sessions#new', via:'get'
   match '/signout', to:'sessions#destroy', via:'get'
