@@ -31,8 +31,7 @@ class UsersController < ApplicationController
     @user.set_image(file)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Cheer!"
-      redirect_to @user
+      redirect_to new_group_path
     else
       render 'new'
     end
