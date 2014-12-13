@@ -11,11 +11,6 @@
     </div>
   <% end %>
 
-  <%= form_for @group do |f| %>
-    <%= f.label :group_name %>
-    <%= f.collection_select :name, Group.all, :id, :name, :include_blank => "選択を解除", :prompt => "選択してください" %>
-
-  <%- end -%>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

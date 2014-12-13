@@ -13,6 +13,13 @@
         <%= f.file_field :image %>
       </div>
       <div class="field">
+        <%= f.label :group_id %>
+        <%= f.collection_select :name, Group.all, :id, :name, :include_blank => "選択を解除", :prompt => "選択してください" %>
+      </div>
+      <div class="actions">
+        <%= f.create "新しいグループの登録はこちら", class: "btn btn-small btn-primary" %>
+      </div>
+      <div class="field">
         <%= f.label :email %><br>
         <%= f.text_field :email %>
       </div>

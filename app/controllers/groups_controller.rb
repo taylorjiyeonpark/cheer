@@ -27,6 +27,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     file = params[:group][:image]
     @group.set_image(file)
+
+    # グループを作成したユーザーのgroup_idを登録
+    current_user.group_id = @group.id
+    current_user.save
    if @group.save
       sign_in @user
       flash[:success] = "Welcome to Cheer!"
