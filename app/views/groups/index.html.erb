@@ -1,0 +1,10 @@
+<h1>All groups</h1>
+
+<ul class="groups">
+  <% @users.each do |group| %>
+    <li>
+      <%= profile_image_for group %>
+      <%= link_to group.name, group %>
+    </li>
+  <% end %>
+</ul>
