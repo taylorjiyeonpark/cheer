@@ -37,6 +37,17 @@ class PostsController < ApplicationController
     end
   end
 
+   def create
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:success] = "Post created!"
+      redirect_to root_url
+    else
+      @feed_posts = current_user.posts.paginate(page: params[:page])
+      render 'about/index'
+    end
+  end
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
