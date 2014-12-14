@@ -28,10 +28,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     file = params[:user][:image]
+    group_name = params[:group][:new_name]
+    if group_name
+      @group =Group.new
+      @group.name = group_name
+      @group.save
+      @user.group_id = @group.id
+    end
     @user.set_image(file)
     if @user.save
       sign_in @user
-      redirect_to new_group_path
+      redirect_to @user
     else
       render 'new'
     end
