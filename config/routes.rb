@@ -1,4 +1,6 @@
  Rails.application.routes.draw do 
+  resources :journals
+
   resources :groups
 
   root  'about#index'
