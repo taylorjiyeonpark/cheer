@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-  end
+    
 
   # GET /posts/1
   # GET /posts/1.json
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     end
   end
 
-   def create
+  def create
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "Post created!"
@@ -82,4 +82,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :user_id)
     end
+  end
 end
