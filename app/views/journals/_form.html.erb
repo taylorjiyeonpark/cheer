@@ -19,11 +19,25 @@
     <%#= f.label :date %><br>
     <%#= f.number_field :date %>
   <!-- </div> -->
-  <div class="form-group birthday">
-            <%= f.label :date, '誕生日', class: "contact-label" %>
+
+  <div class="form-group date">
+            <%= f.label :date, '日付', class: "contact-label" %>
             <%= raw sprintf(
               f.date_select(
                   :date,
+                  {use_month_numbers: true,
+                  start_year:        1920,
+                  end_year:          2014,
+                  default:           (Date.today),
+                  date_separator:    '%s'},
+                  class: "form-control"),
+              '年 ', '月 ') + '日' %>
+
+
+
+
+ <!-- f.date_select(
+                  :birthday,
                   {use_month_numbers: true,
                   start_year:        1920,
                   end_year:          2014,
@@ -31,6 +45,14 @@
                   date_separator:    '%s'},
                   class: "form-control"),
               '年 ', '月 ') + '日' %>
+ -->
+
+
+
+
+
+
+
   </div><!--//form-group-->
   <div class="field">
     <%= f.label :place %><br>
