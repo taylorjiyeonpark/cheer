@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Journal < ActiveRecord::Base
   belongs_to :user
   default_scope -> { order('created_at DESC') }
 end

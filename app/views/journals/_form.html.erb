@@ -1,0 +1,53 @@
+<%= form_for(@journal) do |f| %>
+  <% if @journal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@journal.errors.count, "error") %> prohibited this journal from being saved:</h2>
+
+      <ul>
+      <% @journal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <!-- <div class="field"> -->
+    <%#= f.label :date %><br>
+    <%#= f.number_field :date %>
+  <!-- </div> -->
+  <div class="form-group birthday">
+            <%= f.label :date, '誕生日', class: "contact-label" %>
+            <%= raw sprintf(
+              f.date_select(
+                  :date,
+                  {use_month_numbers: true,
+                  start_year:        1920,
+                  end_year:          2014,
+                  default:           Date.new(1992, 1, 1),
+                  date_separator:    '%s'},
+                  class: "form-control"),
+              '年 ', '月 ') + '日' %>
+  </div><!--//form-group-->
+  <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+  練習報告日記: <%= radio_button 'journal', 'type', 'journal_practce', {:disabled => true} %><br />
+  ミーティング議事録: <%= radio_button 'journal', 'type', 'journal_meeting', {:disabled => true} %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

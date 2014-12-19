@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211073930) do
+ActiveRecord::Schema.define(version: 20141215065644) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "journals", force: true do |t|
+    t.string   "content"
+    t.integer  "date"
+    t.string   "place"
+    t.integer  "type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "posts", force: true do |t|
@@ -35,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141211073930) do
     t.string   "password_digest"
     t.string   "image"
     t.string   "remember_token"
+    t.integer  "group_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -14,10 +14,14 @@
       </div>
       <div class="field">
         <%= f.label :group_id %>
-        <%= f.collection_select :name, Group.all, :id, :name, :include_blank => "選択を解除", :prompt => "選択してください" %>
+        <%= collection_select :group, :name, Group.all, :id, :name, :include_blank => "選択を解除", :prompt => "選択してください" %>
       </div>
       <div class="actions">
-        <%= link_to '新しいグループの登録はこちら', new_group_path, class: "btn btn-small btn-primary" %>
+        <%= link_to '新しいグループの登録はこちら', "", class: "btn btn-small btn-primary" %>
+      </div>
+      <div class="field">
+        <%= label_tag :group %><br> 
+        <%= text_field_tag 'group[new_name]', '' %>
       </div>
       <div class="field">
         <%= f.label :email %><br>
