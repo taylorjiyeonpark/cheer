@@ -39,6 +39,8 @@ class PostsController < ApplicationController
 
    def create
     @post = current_user.posts.build(post_params)
+    file = params[:post][:image]
+    @post.set_image(file)
     if @post.save
       flash[:success] = "Post created!"
       redirect_to root_url
@@ -51,6 +53,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    file = params[:post][:image]
+    @post.set_image(file)
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
