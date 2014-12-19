@@ -58,8 +58,13 @@
     <%= f.label :place %><br>
     <%= f.text_field :place %>
   </div>
-  練習報告日記: <%= radio_button 'journal', 'type', 'journal_practce', {:disabled => true} %><br />
-  ミーティング議事録: <%= radio_button 'journal', 'type', 'journal_meeting', {:disabled => true} %>
+  <div>
+    練習報告日記: <%= f.radio_button :journal_type, 1 %>
+  </div>
+  <div>
+    ミーティング議事録: <%= f.radio_button :journal_type, 2 %>
+  </div>
+  
 
   <div class="field">
     <%= f.label :user_id %><br>
