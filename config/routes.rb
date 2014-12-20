@@ -5,7 +5,7 @@
 
   resources :groups
 
-  root  'about#index'
+  root  'landing#index'
   match '/signin', to:'sessions#new', via:'get'
   match '/signout', to:'sessions#destroy', via:'get'
   match '/about', to:'about#index', via:'get'
