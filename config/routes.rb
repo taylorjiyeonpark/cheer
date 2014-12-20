@@ -1,4 +1,6 @@
  Rails.application.routes.draw do 
+  resources :menus
+
   resources :information
 
   resources :journals
