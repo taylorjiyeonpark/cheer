@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+
   def set_image(file)
     if !file.nil?
       file_name = file.original_filename
