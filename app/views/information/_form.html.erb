@@ -1,0 +1,54 @@
+<%= form_for(@information) do |f| %>
+  <% if @information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@information.errors.count, "error") %> prohibited this information from being saved:</h2>
+
+      <ul>
+      <% @information.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+ <div class="form-group date">
+            <%= f.label :date, '日付', class: "contact-label" %>
+            <%= raw sprintf(
+              f.date_select(
+                  :date,
+                  {use_month_numbers: true,
+                  start_year:        1920,
+                  end_year:          2014,
+                  default:           (Date.today),
+                  date_separator:    '%s'},
+                  class: "form-control"),
+              '年 ', '月 ') + '日' %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+ <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+
+   <div>
+    全体連絡: <%= f.radio_button :information_type, 1 %>
+  </div>
+  <div>
+    チーム連絡: <%= f.radio_button :information_type, 2 %>
+  </div>
+   <div>
+    期別連絡: <%= f.radio_button :information_type, 3 %>
+  </div>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
