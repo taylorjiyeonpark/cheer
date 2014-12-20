@@ -22,11 +22,7 @@
 
 <% else %>
 
-  <div class="center hero-unit">
-    <h1>Welcome to Cheer</h1>
-
-    <%= link_to "Sign up now!", new_user_path, class: "btn btn-large btn-primary" %>
-  </div>
+  <%= render 'layouts/landing' %>
 
   <%= link_to 'Send Mail', action: "mail_send" %>
 

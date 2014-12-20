@@ -53,45 +53,92 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        Cheer! <i class="fa fa-child"></i>
+                        <div>Cheer! <i class="fa fa-child"></i></div>
                     </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a class="sscroll" href="#mypage">Mypage</a>
+                        <li class="active"><%= link_to "Home" %>
                         </li>
-                        <li><%= link_to "Users",users_path %>
-                        </li>
-                        <li><%= link_to "Post",posts_path %>
-                        </li>
-                        <li><%= link_to "Information",information_index_path %>
-                        </li>
-                        <li><%= link_to "Journal",journals_path %>
-                        </li>
-                        <li><%= link_to "Videos" %>
+                        <li><%= link_to "Login",signin_path %>
                         </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </nav>
-          </div>
-    <div id="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-
-      <div class="wrapper">
-        <!-- ここのページがここで読み込まれる -->
-        <%= yield %>
-      </div>
 
 
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+        </div>
+        <div id="container">
+            <!-- BEGIN HOME -->
+            <section id="home" class="home">
+                <div id="home-slide">
+                    <ul class="slides-container text-center">
+                        <li>
+                            <div class="slide-text">
+                                <h2>Cheer</h2>
+                                <span>Gathering all the stuffs useful in the practice</span>
+                                <br/>
+                            </div>
+                            <div class="slide-filter"></div>
+                            <div style="background-image: url('assets/cheer1.jpg');" class="bg-parallax parallaxize"></div>
+                        </li>
+                        <li>
+                            <div class="slide-text">
+                                <h2>Cheer</h2>
+                                <span>Gathering all the stuffs useful in the practice</span>
+                                <br/>
+                            </div>
+                            <div class="slide-filter"></div>
+                            <div style="background-image: url('assets/cheer8.jpg');" class="bg-parallax parallaxize"></div>
+                        </li>
+                        <li>
+                            <!-- Slide -->
+                            <div class="slide-text">
+                                <h2>Cheer</h2>
+                                <span>Gathering all the items useful in the practice</span>
+                                <br/>
+                            </div>
+                            <div class="slide-filter"></div>
+                            <div style="background-image: url('assets/cheer3.jpg');" class="bg-parallax parallaxize"></div>
+                        </li>
+                    </ul>
+                    <nav class="slides-navigation slidez">
+                        <a href="javascript:;" class="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <a href="javascript:;" class="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </nav>
+                </div>
+            <!-- END ABOUT -->
+
+            <!-- BEGIN FOOTER -->
+            <footer>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <strong>Cheer</strong>&nbsp;2014 Created by <a href="javascript:;">DevelPixel</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+            <!-- END FOOTER -->
+        </div>
     </div>
-  <!-- Bootstrap core JavaScript
+
+
+    <div class="totop" id="backtotop">
+        <span>
+            <a href="#home" class="first sscroll"><i class="fa fa-angle-up"></i></a>
+            <a href="#home" class="hover sscroll"><i class="fa fa-angle-up"></i></a>
+        </span>
+    </div>
+
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Jquery Source -->
@@ -103,8 +150,6 @@
     <!-- Superslides Source -->
     <%= javascript_include_tag "jquery.superslides.min.js"%>
     <!-- Smoothscroll Source -->
-    <%= javascript_include_tag "smoothscroll.js"%>
-    <!-- Sudo Slider Source -->
     <%= javascript_include_tag "jquery.sudoslider.min.js"%>
     <!-- Mixitup Source -->
     <%= javascript_include_tag "jquery.mixitup.min.js"%>
@@ -118,9 +163,9 @@
     <%= javascript_include_tag "jquery.mobileresponsive.js"%>
     <!-- Google Map Source -->
     <%= javascript_include_tag "gmap3.min.js"%>
-
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <!-- Main Action Javascript -->
     <%= javascript_include_tag "main.js"%>
 </body>
+
 </html>
